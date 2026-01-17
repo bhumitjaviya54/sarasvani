@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Therapy Client Portal - MyTherapy Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.1/sweetalert2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.1/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style_3.css">
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <body>
+        <body data-theme="light">
+            <header>
+                <div class="header-container">
+                    <div class="logo">
+                        <img src="Sarasvani-main (2).png" alt="Speech Therapy Dashboard Logo" class="logo-img">
+                        <span class="logo-text"></span>
+                    </div>
+                    <nav>
+                        <ul class="nav-links">
+                            <li><a href="dashboard.html">Home</a></li>
+                            <li><a href="patient-portal.html">Patients</a></li>
+                            <li><a href="caseallocation.html">Sessions</a></li>
+                            <li><a href="cilent_side.html">Reports</a></li>
+                            <li><a href="kids.html">kids</a></li>
+                        </ul>
+                        <div class="theme-toggle-wrapper">
+                            <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
+                            <label for="theme-toggle" class="theme-toggle-label">
+                                <span class="theme-toggle-inner"></span>
+                                <span class="theme-toggle-switch"></span>
+                            </label>
+                      
+                        </div>
+                    </nav>
+                </div>
+            </header>
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-dumbbell"></i> Daily Exercises</h2>
+                        <button class="btn btn-outline" onclick="showExerciseGuide()">
+                            <i class="fas fa-book"></i> View Guide
+                        </button>
+                    </div>
+                    <div class="exercises">
+                        <div class="exercise-item">
+                            <div class="exercise-info">
+                                <h3>Articulation Exercise</h3>
+                                <p>Focus on /s/ and /z/ sounds - 15 minutes</p>
+                            </div>
+                            <div class="exercise-actions">
+                                <button class="btn btn-outline" onclick="viewExerciseDetails(1)">
+                                    <i class="fas fa-info-circle"></i> Info
+                                </button>
+                                <button class="btn btn-success" onclick="startExercise(1)">
+                                    <i class="fas fa-play"></i> Start
+                                </button>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-info">
+                                <h3>Fluency Training</h3>
+                                <p>Reading passage with pacing - 20 minutes</p>
+                            </div>
+                            <div class="exercise-actions">
+                                <button class="btn btn-outline" onclick="viewExerciseDetails(2)">
+                                    <i class="fas fa-info-circle"></i> Info
+                                </button>
+                                <button class="btn btn-success" onclick="startExercise(2)">
+                                    <i class="fas fa-play"></i> Start
+                                </button>
+                            </div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-info">
+                                <h3>Voice Control</h3>
+                                <p>Pitch and volume exercises - 10 minutes</p>
+                            </div>
+                            <div class="exercise-actions">
+                                <button class="btn btn-outline" onclick="viewExerciseDetails(3)">
+                                    <i class="fas fa-info-circle"></i> Info
+                                </button>
+                                <button class="btn btn-success" onclick="startExercise(3)">
+                                    <i class="fas fa-play"></i> Start
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Resource Library and Recording Section -->
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-book"></i> Resource Library</h2>
+                </div>
+                <div class="resources">
+                    <div class="resource-item">
+                        <i class="fas fa-video"></i>
+                        <h3>Practice Videos</h3>
+                        <p>Watch demonstration videos</p>
+                    </div>
+                    <div class="resource-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Exercise Handouts</h3>
+                        <p>Downloadable materials</p>
+                    </div>
+                    <div class="resource-item">
+                        <i class="fas fa-headphones"></i>
+                        <h3>Audio Guides</h3>
+                        <p>Pronunciation practice</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-chart-line"></i> My Progress</h2>
+                </div>
+                <div class="progress-dashboard">
+                    <div class="progress-item">
+                        <h3>Speech Clarity</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                        <span>75% improvement</span>
+                    </div>
+                    
+                    <div class="streak-counter">
+                        <i class="fas fa-fire"></i>
+                        <span>12 Day Streak!</span>
+                    </div>
+                    
+                    <div class="weekly-goals">
+                        <h3>Weekly Goals</h3>
+                        <div class="goal-item">
+                            <span>Complete 5 articulation exercises</span>
+                            <span>3/5 completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-microphone"></i> Practice Recording</h2>
+                </div>
+                <div class="recording-section">
+                    <div class="recording-controls">
+                        <button class="btn btn-primary" onclick="startRecording()">
+                            <i class="fas fa-microphone"></i> Start Recording
+                        </button>
+                        <button class="btn btn-outline" onclick="playbackRecording()">
+                            <i class="fas fa-play"></i> Play Last Recording
+                        </button>
+                    </div>
+                    <div class="recording-history">
+                        <h3>Recent Recordings</h3>
+                        <p>No recordings yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calendar-alt"></i> Upcoming Appointments</h2>
+                        <button class="btn btn-outline" onclick="scheduleAppointment()">
+                            <i class="fas fa-plus"></i> Schedule
+                        </button>
+                    </div>
+                    <div class="appointment">
+                        <div class="appointment-info">
+                            <div class="appointment-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="appointment-details">
+                                <h3>Speech Therapy Session</h3>
+                                <p>Dr. Sarah Johnson</p>
+                                <p><i class="fas fa-clock"></i> Tomorrow, 10:00 AM</p>
+                                <p><i class="fas fa-video"></i> Video Conference</p>
+                            </div>
+                        </div>
+                        <div class="badge badge-success">
+                            <i class="fas fa-check"></i> Confirmed
+                        </div>
+                    </div>
+                    <div class="appointment">
+                        <div class="appointment-info">
+                            <div class="appointment-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="appointment-details">
+                                <h3>Progress Review</h3>
+                                <p>Dr. Michael Chen</p>
+                                <p><i class="fas fa-clock"></i> Friday, 2:00 PM</p>
+                                <p><i class="fas fa-hospital"></i> In-person</p>
+                            </div>
+                        </div>
+                        <div class="badge badge-warning">
+                            <i class="fas fa-clock"></i> Pending
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-bell"></i> Recent Updates</h2>
+                    </div>
+                    <div class="notification">
+                        <h3><i class="fas fa-tasks"></i> Exercise Plan Updated</h3>
+                        <p>Dr. Johnson has modified your weekly exercise routine to focus more on articulation.</p>
+                        <small>2 hours ago</small>
+                    </div>
+                    <div class="notification">
+                        <h3><i class="fas fa-trophy"></i> Achievement Unlocked</h3>
+                        <p>Congratulations! You've completed 7 consecutive days of practice.</p>
+                        <small>Yesterday</small>
+                    </div>
+                    <div class="notification">
+                        <h3><i class="fas fa-chart-line"></i> Progress Milestone</h3>
+                        <p>You've improved your fluency score by 15% this month!</p>
+                        <small>2 days ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-users"></i> Community & Support</h2>
+                </div>
+                <div class="community-section">
+                    <div class="support-chat">
+                        <button class="btn btn-primary" onclick="openSupportChat()">
+                            <i class="fas fa-comments"></i> Chat with Therapist
+                        </button>
+                    </div>
+                    <div class="practice-reminders">
+                        <h3>Set Practice Reminders</h3>
+                        <div class="reminder-settings">
+                            <input type="time" id="reminderTime">
+                            <button class="btn btn-outline" onclick="setReminder()">
+                                Set Reminder
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="exercise-timer" style="display: none;">
+            <div class="timer-display">
+                <span id="minutes">15</span>:<span id="seconds">00</span>
+            </div>
+            <div class="timer-controls">
+                <button class="btn btn-success" onclick="pauseTimer()">
+                    <i class="fas fa-pause"></i> Pause
+                </button>
+                <button class="btn btn-danger" onclick="stopTimer()">
+                    <i class="fas fa-stop"></i> Stop
+                </button>
+            </div>
+        </div>
+    
+        <script>
+            // Theme toggle functionality
+const themeToggleBtn = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme') || 'light';
+
+document.documentElement.setAttribute('data-theme', currentTheme);
+themeToggleBtn.checked = currentTheme === 'dark';
+
+themeToggleBtn.addEventListener('change', () => {
+    const newTheme = themeToggleBtn.checked ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+
+// Sample data
+let patients = [
+    { name: 'Dhanush', age: 28, condition: 'Stuttering', progress: 75 },
+    { name: 'Priya Sharma', age: 30, condition: 'Speech Delay', progress: 80 },
+    { name: 'Aarav Patel', age: 35, condition: 'Fluency Disorder', progress: 60 }
+];
+
+let sessions = [
+    { date: '2024-09-28', patient: 'Dhanush', duration: '45 minutes', progress: 'Improved fluency' },
+    { date: '2024-09-27', patient: 'Priya Sharma', duration: '30 minutes', progress: 'Steady improvement' },
+    { date: '2024-09-26', patient: 'Aarav Patel', duration: '60 minutes', progress: 'Significant progress' }
+];
+
+let reports = [
+    { patient: 'Dhanush', date: '2024-09-25', sessionsCovered: 'Sessions 1-10' },
+    { patient: 'Priya Sharma', date: '2024-09-24', sessionsCovered: 'Sessions 1-8' },
+    { patient: 'Aarav Patel', date: '2024-09-23', sessionsCovered: 'Sessions 1-12' }
+];
+
+// Populate tables
+function populateTables() {
+    const patientTable = document.getElementById('patientTable');
+    const sessionTable = document.getElementById('sessionTable');
+    const reportTable = document.getElementById('reportTable');
+
+    // Patient Table
+    patientTable.innerHTML = patients.map(patient => `
+        <tr>
+            <td>${patient.name}</td>
+            <td>${patient.age}</td>
+            <td>${patient.condition}</td>
+            <td>
+                <div class="progress-bar">
+                    <div class="progress" style="width: ${patient.progress}%"></div>
+                </div>
+                ${patient.progress}%
+            </td>
+            <td>
+                <button class="btn" onclick="editPatient('${patient.name}')">Edit</button>
+                <button class="btn" onclick="generateReport('${patient.name}')">Report</button>
+                <button class="btn" onclick="showChart('${patient.name}')">Chart</button>
+            </td>
+        </tr>
+    `).join('');
+
+    // Session Table
+    sessionTable.innerHTML = sessions.map(session => `
+        <tr>
+            <td>${session.date}</td>
+            <td>${session.patient}</td>
+            <td>${session.duration}</td>
+            <td>${session.progress}</td>
+            <td>
+                <button class="btn" onclick="viewSessionDetails('${session.date}', '${session.patient}')">Details</button>
+            </td>
+        </tr>
+    `).join('');
+
+    // Report Table
+    reportTable.innerHTML = reports.map(report => `
+        <tr>
+            <td>${report.patient}</td>
+            <td>${report.date}</td>
+            <td>${report.sessionsCovered}</td>
+            <td>
+                <button class="btn" onclick="viewReport('${report.patient}')">View</button>
+                <button class="btn" onclick="downloadReport('${report.patient}')">Download</button>
+            </td>
+        </tr>
+    `).join('');
+}
+
+// Add New Patient
+function openAddPatientModal() {
+    // Reset form fields
+    document.getElementById('newName').value = '';
+    document.getElementById('newAge').value = '';
+    document.getElementById('newCondition').value = '';
+    document.getElementById('newProgress').value = '';
+
+    document.getElementById('addPatientModal').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+}
+
+function addNewPatient() {
+    const name = document.getElementById('newName').value.trim();
+    const age = parseInt(document.getElementById('newAge').value);
+    const condition = document.getElementById('newCondition').value.trim();
+    const progress = parseInt(document.getElementById('newProgress').value);
+
+    // Comprehensive input validation
+    const errors = [];
+
+    if (!name) errors.push('Patient Name is required');
+    if (isNaN(age) || age < 0 || age > 120) errors.push('Invalid Age (0-120)');
+    if (!condition) errors.push('Condition is required');
+    if (isNaN(progress) || progress < 0 || progress > 100) errors.push('Progress must be between 0-100%');
+
+    // Check for duplicate patient
+    const existingPatient = patients.find(p => p.name.toLowerCase() === name.toLowerCase());
+    if (existingPatient) errors.push('A patient with this name already exists');
+
+    // Display errors or add patient
+    if (errors.length > 0) {
+        alert('Please correct the following errors:\n' + errors.join('\n'));
+        return;
+    }
+
+    // Add new patient
+    patients.push({ name, age, condition, progress });
+    populateTables();
+    closeAddPatientModal();
+}
+
+function closeAddPatientModal() {
+    document.getElementById('addPatientModal').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+}
+
+// Edit Patient
+function editPatient(patientName) {
+    const patient = patients.find(p => p.name === patientName);
+    if (!patient) return;
+
+    document.getElementById('editName').value = patient.name;
+    document.getElementById('editAge').value = patient.age;
+    document.getElementById('editCondition').value = patient.condition;
+    document.getElementById('editProgress').value = patient.progress;
+
+    document.getElementById('editModal').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+}
+
+// Save Patient
+function savePatient() {
+    const name = document.getElementById('editName').value;
+    const age = parseInt(document.getElementById('editAge').value);
+    const condition = document.getElementById('editCondition').value;
+    const progress = parseInt(document.getElementById('editProgress').value);
+
+    const patientIndex = patients.findIndex(p => p.name === name);
+    if (patientIndex !== -1) {
+        patients[patientIndex] = { name, age, condition, progress };
+        populateTables();
+        closeModal();
+    }
+}
+
+// Close Modal
+function closeModal() {
+    document.getElementById('editModal').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+}
+
+// Generate Report
+function generateReport(patientName) {
+    const patient = patients.find(p => p.name === patientName);
+    if (!patient) return;
+
+    const reportContent = `
+Patient Report: ${patient.name}
+------------------------------
+Age: ${patient.age}
+Condition: ${patient.condition}
+Progress: ${patient.progress}%
+
+Recommendations:
+1. Continue current treatment plan
+2. Monitor progress closely
+3. Consider advanced therapy techniques
+    `;
+
+    // Download report
+    const blob = new Blob([reportContent], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = `${patient.name}_Report.txt`;
+    link.click();
+}
+
+// Generate New Report
+function generateNewReport() {
+    alert('Generating a comprehensive report. Please select a patient.');
+}
+
+// View Session Details
+function viewSessionDetails(date, patientName) {
+    const session = sessions.find(s => s.date === date && s.patient === patientName);
+    if (session) {
+        alert(`
+Session Details
+---------------
+Date: ${session.date}
+Patient: ${session.patient}
+Duration: ${session.duration}
+Progress: ${session.progress}
+        `);
+    }
+}
+
+// View Report
+function viewReport(patientName) {
+    const report = reports.find(r => r.patient === patientName);
+    if (report) {
+        alert(`
+Report Details
+---------------
+Patient: ${report.patient}
+Date: ${report.date}
+Sessions Covered: ${report.sessionsCovered}
+        `);
+    }
+}
+
+// Download Report
+function downloadReport(patientName) {
+    const report = reports.find(r => r.patient === patientName);
+    if (report) {
+        const reportContent = `
+Patient Report: ${report.patient}
+Date: ${report.date}
+Sessions Covered: ${report.sessionsCovered}
+        `;
+
+        const blob = new Blob([reportContent], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = `${patientName}_Report.txt`;
+        link.click();
+    }
+}
+
+// Chart Initialization
+let patientChart;
+function showChart(patientName) {
+    const ctx = document.getElementById('patientChart').getContext('2d');
+    
+    // Destroy existing chart if it exists
+    if (patientChart) {
+        patientChart.destroy();
+    }
+
+    // Sample progress data with more detailed tracking
+    const progressData = {
+        'Dhanush': [65, 70, 75, 80, 85, 90, 95],
+        'Priya Sharma': [55, 60, 70, 75, 80, 85, 90],
+        'Aarav Patel': [40, 45, 50, 55, 60, 65, 70]
+    };
+
+    // Use default data for new patients
+    const chartData = progressData[patientName] || 
+        [40, 45, 50, 55, 60, 65, 70];
+
+    patientChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'],
+            datasets: [{
+                label: `${patientName} Progress`,
+                data: chartData,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                borderWidth: 2,
+                tension: 0.1,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: 'Progress (%)'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Time Period'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'Patient Progress Over Time',
+                    font: {
+                        size: 16
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Initialize when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    populateTables();
+    // Show initial chart for first patient
+    if (patients.length > 0) {
+        showChart(patients[0].name);
+    }
+});
+            // Initialize progress chart
+            window.onload = function() {
+                const ctx = document.getElementById('progressChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                        datasets: [{
+                            label: 'Overall Progress',
+                            data: [65, 70, 75, 78, 82, 85],
+                            borderColor: '#2575fc',
+                            tension: 0.4,
+                            fill: true,
+                            backgroundColor: 'rgba(37, 117, 252, 0.1)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value + '%';
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            };
+    
+            // Show notifications
+            function showNotifications() {
+                Swal.fire({
+                    title: 'Notifications',
+                    html: `
+                        <div style="text-align: left">
+                            <div class="notification">
+                                <h3><i class="fas fa-bell"></i> New Exercise Added</h3>
+                                <p>Check your updated exercise plan for today.</p>
+                            </div>
+                            <div class="notification">
+                                <h3><i class="fas fa-calendar"></i> Upcoming Session</h3>
+                                <p>Speech therapy session tomorrow at 10:00 AM.</p>
+                            </div>
+                            <div class="notification">
+                                <h3><i class="fas fa-chart-line"></i> Progress Report</h3>
+                                <p>Your monthly progress report is available for review.</p>
+                            </div>
+                        </div>
+                    `,
+                    width: 600,
+                    showConfirmButton: false,
+                    showCloseButton: true
+                });
+            }
+    
+            // Show exercise guide
+            function showExerciseGuide() {
+                Swal.fire({
+                    title: 'Exercise Guide',
+                    html: `
+                        <div style="text-align: left">
+                            <h3 style="color: var(--primary-color)">Articulation Exercise:</h3>
+                            <p>• Practice specific sound combinations</p>
+                            <p>• Record and playback your speech</p>
+                            <p>• Complete minimal pair exercises</p>
+                            <br>
+                            <h3 style="color: var(--primary-color)">Fluency Training:</h3>
+                            <p>• Read provided passages with proper pacing</p>
+                            <p>• Practice breathing techniques</p>
+                            <p>• Use rhythm and timing exercises</p>
+                            <br>
+                            <h3 style="color: var(--primary-color)">Voice Control:</h3>
+                            <p>• Pitch variation exercises</p>
+                            <p>• Volume control practice</p>
+                            <p>• Resonance exercises</p>
+                        </div>
+                    `,
+                    width: 600,
+                    showCloseButton: true,
+                    confirmButtonText: 'Got it!'
+                });
+            }
+    
+            // View exercise details
+            function viewExerciseDetails(id) {
+                const exercises = {
+                    1: {
+                        title: 'Articulation Exercise',
+                        description: 'Focus on improving /s/ and /z/ sounds through structured practice.',
+                        duration: '15 minutes',
+                        steps: [
+                            'Warm-up with breathing exercises',
+                            'Practice word lists with target sounds',
+                            'Record and analyze your pronunciation',
+                            'Complete minimal pair exercises'
+                        ]
+                    },
+                    // Add details for other exercises
+                };
+    
+                const exercise = exercises[id];
+                Swal.fire({
+                    title: exercise.title,
+                    html: `
+                        <div style="text-align: left">
+                            <p><strong>Duration:</strong> ${exercise.duration}</p>
+                            <p><strong>Description:</strong> ${exercise.description}</p>
+                            <br>
+                            <h3>Steps:</h3>
+                            <ul style="list-style-type: none; padding: 0;">
+                                ${exercise.steps.map(step => `<li style="margin: 10px 0;"><i class="fas fa-check"></i> ${step}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `,
+                    width: 600,
+                    showConfirmButton: true,
+                    confirmButtonText: 'Start Exercise',
+                    showCancelButton: true,
+                    cancelButtonText: 'Close'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        startExercise(id);
+                    }
+                });
+            }
+    
+            // Start exercise
+            function startExercise(id) {
+                Swal.fire({
+                    title: 'Starting Exercise',
+                    html: 'Preparing your exercise session...',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    willOpen: () => {
+                        Swal.showLoading();
+                    }
+                }).then(() => {
+                    // Here you would normally redirect to the exercise interface
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Exercise Ready',
+                        text: 'Your exercise session is ready to begin.',
+                        confirmButtonText: 'Start Now'
+                    });
+                });
+            }
+    
+            // Show detailed progress
+            function showDetailedProgress() {
+                Swal.fire({
+                    title: 'Detailed Progress Report',
+                    html: `
+                        <div style="text-align: left">
+                            <h3>Weekly Progress</h3>
+                            <p>Overall improvement: +5%</p>
+                            <p>Areas of strength: Articulation, Breathing Control</p>
+                            <p>Areas for focus: Fluency in conversation</p>
+                            <br>
+                            <h3>Achievement Highlights</h3>
+                            <p>• Completed 7-day practice streak</p>
+                            <p>• Improved articulation accuracy by 15%</p>
+                            <p>• Mastered basic breathing exercises</p>
+                        </div>
+                    `,
+                    width: 600,
+                    showCloseButton: true,
+                    confirmButtonText: 'Download Report'
+                });
+            }
+    
+            // Schedule appointment
+            function scheduleAppointment() {
+                Swal.fire({
+                    title: 'Schedule Appointment',
+                    html: `
+                        <div style="text-align: left">
+                            <p>Please select your preferred appointment type and time:</p>
+                            <select class="form-select" style="width: 100%; margin: 10px 0; padding: 8px;">
+                                <option>Speech Therapy Session</option>
+                                <option>Progress Review</option>
+                                <option>Consultation</option>
+                            </select>
+                            <input type="date" style="width: 100%; margin: 10px 0; padding: 8px;">
+                            <select class="form-select" style="width: 100%; margin: 10px 0; padding: 8px;">
+                                <option>9:00 AM</option>
+                                <option>10:00 AM</option>
+                                <option>11:00 AM</option>
+                                <option>2:00 PM</option>
+                                <option>3:00 PM</option>
+                            </select>
+                        </div>
+                    `,
+                    showCancelButton: true,
+                    confirmButtonText: 'Schedule',
+                    cancelButtonText: 'Cancel',
+                    width: 600
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            'Appointment Requested',
+                            'Your appointment request has been sent. We will confirm shortly.',
+                            'success'
+                        );
+                    }
+
+                });
+            }
+            let timerInterval;
+        let isTimerPaused = false;
+
+        function startRecording() {
+            Swal.fire({
+                title: 'Recording...',
+                html: `
+                    <div class="recording-indicator">
+                        <i class="fas fa-microphone-alt"></i>
+                        <div class="recording-waves">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <p>Speaking volume detected</p>
+                `,
+                showCancelButton: true,
+                cancelButtonText: 'Stop Recording',
+                showConfirmButton: false
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.cancel) {
+                    saveRecording();
+                }
+            });
+        }
+
+        function playbackRecording() {
+            Swal.fire({
+                title: 'Playing Recording',
+                html: `
+                    <div class="audio-player">
+                        <i class="fas fa-play"></i>
+                        <div class="audio-waves">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                `,
+                timer: 3000,
+                timerProgressBar: true,
+                showConfirmButton: false
+            });
+        }
+
+        function saveRecording() {
+            const timestamp = new Date().toLocaleString();
+            const recordingHistory = document.querySelector('.recording-history');
+            const newRecording = document.createElement('div');
+            newRecording.className = 'recording-item';
+            newRecording.innerHTML = `
+                <p><i class="fas fa-file-audio"></i> Recording - ${timestamp}</p>
+                <button class="btn btn-outline btn-sm" onclick="playbackRecording()">
+                    <i class="fas fa-play"></i> Play
+                </button>
+            `;
+            recordingHistory.appendChild(newRecording);
+        }
+
+        function startTimer(duration) {
+            const timerDisplay = document.querySelector('.exercise-timer');
+            timerDisplay.style.display = 'block';
+            
+            let time = duration * 60;
+            timerInterval = setInterval(() => {
+                if (!isTimerPaused) {
+                    const minutes = Math.floor(time / 60);
+                    const seconds = time % 60;
+                    
+                    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                    
+                    if (--time < 0) {
+                        clearInterval(timerInterval);
+                        exerciseComplete();
+                    }
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            isTimerPaused = !isTimerPaused;
+            const pauseButton = document.querySelector('.timer-controls .btn-success');
+            pauseButton.innerHTML = isTimerPaused ? 
+                '<i class="fas fa-play"></i> Resume' : 
+                '<i class="fas fa-pause"></i> Pause';
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            document.querySelector('.exercise-timer').style.display = 'none';
+        }
+
+        function exerciseComplete() {
+            Swal.fire({
+                title: 'Exercise Complete!',
+                text: 'Great job! Would you like to save your progress?',
+                icon: 'success',
+                showCancelButton: true,
+                confirmButtonText: 'Save Progress',
+                cancelButtonText: 'Close'
+            });
+        }
+
+        function openSupportChat() {
+            Swal.fire({
+                title: 'Chat with Your Therapist',
+                html: `
+                    <div class="chat-window">
+                        <div class="chat-messages">
+                            <p class="message received">Hello! How can I help you today?</p>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type your message..." class="swal2-input">
+                            <button class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                `,
+                width: '600px',
+                showCloseButton: true,
+                showConfirmButton: false
+            });
+        }
+
+        function setReminder() {
+            const time = document.getElementById('reminderTime').value;
+            if (time) {
+                Swal.fire({
+                    title: 'Reminder Set!',
+                    text: `You will be reminded to practice at ${time}`,
+                    icon: 'success',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            }
+        }
+
+        // Modify your existing startExercise function
+        function startExercise(id) {
+            Swal.fire({
+                title: 'Starting Exercise',
+                html: 'Preparing your exercise session...',
+                timer: 2000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                willOpen: () => {
+                    Swal.showLoading();
+                }
+            }).then(() => {
+                startTimer(15); // Start 15-minute timer
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Exercise Ready',
+                    text: 'Your exercise session is ready to begin.',
+                    confirmButtonText: 'Start Now'
+                });
+            });
+        }
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Therapy Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="Sarasvani-main (2).png" alt="Speech Therapy Dashboard Logo" class="logo-img">
+                <span class="logo-text"></span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html">Home</a></li>
+                    <li><a href="patient-portal.html">Patients</a></li>
+                    <li><a href="caseallocation.html">Sessions</a></li>
+                    <li><a href="cilent_side.html">Reports</a></li>
+                    <li><a href="kids.html">kids</a></li>
+                </ul>
+                <div class="theme-toggle-wrapper">
+                    <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
+                    <label for="theme-toggle" class="theme-toggle-label">
+                        <span class="theme-toggle-inner"></span>
+                        <span class="theme-toggle-switch"></span>
+                    </label>
+            
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="page-container">
+        <div class="content-wrap">
+            <main class="container">
+                <section id="profile">
+                    <div class="section__text">
+                        <h1 class="title">Welcome to Speech Therapy Dashboard</h1>
+                        <p>Manage patients, analyze data, and track progress</p>
+                        <div class="btn-container">
+                            <button class="btn" onclick="location.href='#patients'">Manage Patients</button>
+                            <button class="btn" onclick="location.href='#reports'">View Reports</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="patients" class="tab-content">
+                    <h2>Patient Management</h2>
+                    <button class="btn" onclick="openAddPatientModal()">Add New Patient</button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Condition</th>
+                                <th>Progress</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patientTable">
+                          
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="classification" class="tab-content">
+                    <h2>Audio and Video Classification</h2>
+                    <div class="btn-container">
+                        <button class="btn">Audio Submissions</button>
+                        <button class="btn">Video Submissions</button>
+                    </div>
+                    <div id="chartContainer" class="chart-container">
+                        <canvas id="patientChart"></canvas>
+                    </div>
+                </section>
+
+                <section id="sessions" class="tab-content">
+                    <h2>Session History</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Patient</th>
+                                <th>Duration</th>
+                                <th>Progress</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sessionTable">
+
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="reports" class="tab-content">
+                    <h2>Progress Reports</h2>
+                    <button class="btn" onclick="generateNewReport()">Generate New Report</button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Report Date</th>
+                                <th>Sessions Covered</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportTable">
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+
+            <!-- Edit Patient Modal -->
+            <div class="modal" id="editModal">
+                <div class="modal-header">
+                    <h2>Edit Patient</h2>
+                    <button class="btn" onclick="closeModal()">X</button>
+                </div>
+                <div class="modal-content">
+                    <input type="text" id="editName" placeholder="Name">
+                    <input type="number" id="editAge" placeholder="Age">
+                    <input type="text" id="editCondition" placeholder="Condition">
+                    <input type="number" id="editProgress" placeholder="Progress (%)">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" onclick="savePatient()">Save</button>
+                    <button class="btn" onclick="closeModal()">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Add Patient Modal -->
+          <!-- Add Patient Modal -->
+<div class="modal" id="addPatientModal">
+    <div class="modal-header">
+        <h2>Add New Patient</h2>
+        <button class="btn" onclick="closeAddPatientModal()">X</button>
+    </div>
+    <div class="modal-content">
+        <input type="text" id="newName" placeholder="Name" required>
+        <input type="number" id="newAge" placeholder="Age" required>
+        <input type="text" id="newCondition" placeholder="Condition" required>
+        <input type="number" id="newProgress" placeholder="Progress (%)" required>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" onclick="addNewPatient()">Add Patient</button>
+        <button class="btn" onclick="closeAddPatientModal()">Cancel</button>
+    </div>
+</div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; Theralytics.AI. All rights reserved.</p>
+                    <p>Version 1.0.0</p>
+                </div>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

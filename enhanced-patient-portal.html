@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Patient Portal - Speech Therapy Clinical Services</title>
+    <!-- Include existing CSS and JS libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style_3.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.1/sweetalert2.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Enhanced Header with Treatment Status -->
+        <div class="header">
+            <!-- ... existing header code ... -->
+            <div class="treatment-status">
+                <div class="status-item">
+                    <span class="status-label">Current Phase:</span>
+                    <span class="status-value">Intensive Therapy</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Next Review:</span>
+                    <span class="status-value">March 15, 2024</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Assigned Therapist:</span>
+                    <span class="status-value">Dr. Sarah Johnson</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Treatment Timeline Section -->
+        <div class="treatment-timeline">
+            <h2>Treatment Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item completed">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h3>Initial Assessment</h3>
+                        <p>Completed on Jan 15, 2024</p>
+                        <button class="btn btn-outline" onclick="viewAssessment('initial')">
+                            View Report
+                        </button>
+                    </div>
+                </div>
+                <div class="timeline-item active">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h3>Phase 1 Therapy</h3>
+                        <p>In Progress (Week 8 of 12)</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more timeline items -->
+            </div>
+        </div>
+
+        <!-- Enhanced Therapy Documentation Section -->
+        <div class="documentation-section">
+            <h2>Therapy Documentation</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Session Notes</h3>
+                        <button class="btn btn-outline" onclick="addSessionNote()">
+                            Add Note
+                        </button>
+                    </div>
+                    <div class="session-notes">
+                        <!-- Add session notes here -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Progress Metrics</h3>
+                        <button class="btn btn-outline" onclick="viewDetailedMetrics()">
+                            View All
+                        </button>
+                    </div>
+                    <div class="metrics-grid">
+                        <!-- Add metrics here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Communication Hub Section -->
+        <div class="communication-hub">
+            <h2>Communication Hub</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Messages</h3>
+                        <button class="btn btn-primary" onclick="newMessage()">
+                            New Message
+                        </button>
+                    </div>
+                    <div class="messages-list">
+                        <!-- Add messages here -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Upcoming Reviews</h3>
+                    </div>
+                    <div class="reviews-list">
+                        <!-- Add reviews here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Resource Library -->
+        <div class="resource-library">
+            <h2>Resource Library</h2>
+            <div class="resource-filters">
+                <!-- Add resource filters -->
+            </div>
+            <div class="resources-grid">
+                <!-- Add resources -->
+            </div>
+        </div>
+
+        <!-- Treatment Goals Section -->
+        <div class="treatment-goals">
+            <h2>Treatment Goals</h2>
+            <div class="goals-grid">
+                <!-- Add goals -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Modals -->
+    <div class="modal" id="sessionNoteModal">
+        <!-- Add session note modal content -->
+    </div>
+
+    <div class="modal" id="messageModal">
+        <!-- Add message modal content -->
+    </div>
+
+    <script>
+        // Add enhanced JavaScript functionality here
+        function addSessionNote() {
+            // Implementation
+        }
+
+        function viewDetailedMetrics() {
+            // Implementation
+        }
+
+        function newMessage() {
+            // Implementation
+        }
+
+        // Add more functions as needed
+    </script>
+</body>
+</html>

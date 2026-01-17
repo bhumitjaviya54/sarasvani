@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Portal - Speech Therapy Center</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="style_3.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body>
+<body data-theme="light">
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="Sarasvani-main (2).png" alt="Speech Therapy Dashboard Logo" class="logo-img">
+                <span class="logo-text"></span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html">Home</a></li>
+                    <li><a href="patient-portal.html">Patients</a></li>
+                    <li><a href="caseallocation.html">Sessions</a></li>
+                    <li><a href="cilent_side.html">Reports</a></li>
+                    <li><a href="kids.html">kids</a></li>
+                </ul>
+                <div class="theme-toggle-wrapper">
+                    <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
+                    <label for="theme-toggle" class="theme-toggle-label">
+                        <span class="theme-toggle-inner"></span>
+                        <span class="theme-toggle-switch"></span>
+                    </label>
+            
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <!-- User Profile Header -->
+        <div class="header">
+            <div class="user-info">
+                <div class="user-avatar">BF</div>
+                <div class="user-details">
+                    <h2>Bhavya Fattania</h2>
+                    <p>Patient ID: PT-2024-001</p>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-outline" onclick="editProfile()">
+                    <i class="fas fa-user-edit"></i> Edit Profile
+                </button>
+                <button class="btn btn-primary" onclick="scheduleSession()">
+                    <i class="fas fa-calendar-plus"></i> Schedule Session
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>12</h3>
+                <p>Sessions Completed</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>75%</h3>
+                <p>Overall Progress</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-fire"></i>
+                <h3>7</h3>
+                <p>Day Streak</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <h3>4.8/5</h3>
+                <p>Exercise Rating</p>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid">
+            <!-- Today's Exercises -->
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-dumbbell"></i> Today's Exercises</h2>
+                    <span class="badge badge-primary">3 Remaining</span>
+                </div>
+                <div class="exercises">
+                    <div class="exercise-item">
+                        <div class="exercise-info">
+                            <h3>Morning Vocal Warm-up</h3>
+                            <p>10 minutes of breathing exercises</p>
+                        </div>
+                        <button class="btn btn-success" onclick="startExercise('warmup')">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-info">
+                            <h3>Articulation Practice</h3>
+                            <p>Focus on /s/ and /th/ sounds</p>
+                        </div>
+                        <button class="btn btn-success" onclick="startExercise('articulation')">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                    </div>
+                    <div class="exercise-item">
+                        <div class="exercise-info">
+                            <h3>Reading Practice</h3>
+                            <p>Passage reading with rhythm</p>
+                        </div>
+                        <button class="btn btn-success" onclick="startExercise('reading')">
+                            <i class="fas fa-play"></i> Start
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Tracking -->
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-chart-bar"></i> Progress Report</h2>
+                    <button class="btn btn-outline" onclick="viewDetailedProgress()">
+                        <i class="fas fa-external-link-alt"></i> Full Report
+                    </button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Features -->
+        <div class="grid">
+            <!-- Upcoming Sessions -->
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-calendar"></i> Upcoming Sessions</h2>
+                </div>
+                <div class="sessions-list">
+                    <div class="session-item">
+                        <div class="session-info">
+                            <h3>Speech Therapy</h3>
+                            <p><i class="fas fa-clock"></i> Tomorrow, 10:00 AM</p>
+                            <p><i class="fas fa-user-md"></i> Dr. Sarah Johnson</p>
+                        </div>
+                        <div class="session-actions">
+                            <button class="btn btn-outline" onclick="joinSession('session1')">Join</button>
+                            <button class="btn btn-outline" onclick="rescheduleSession('session1')">Reschedule</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources -->
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-book-reader"></i> Learning Resources</h2>
+                </div>
+                <div class="resources-grid">
+                        <div class="resource-item">
+                            <a a href="https://youtu.be/9IEys7g2YFc?si=4JptOigsKxt3y_Zz"><h3>Tutorial Videos</h3></a>
+                            <p>Watch guided exercise videos</p>
+                           
+                        </div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="/images/NOTES BY SARASVANI.pdf"><h3>Practice Sheets</h3></a>
+                        <p>Download exercise materials</p>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Audio Guides</h3>
+                        <p>Listen to pronunciation guides</p>
+                        <audio controls>
+                            <source src="audio.mp3" type="audio/mp3">
+                            Your browser does not support the audio element.
+                          </audio>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+const themeToggleBtn = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme') || 'light';
+
+document.documentElement.setAttribute('data-theme', currentTheme);
+themeToggleBtn.checked = currentTheme === 'dark';
+
+themeToggleBtn.addEventListener('change', () => {
+    const newTheme = themeToggleBtn.checked ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
+        // Initialize Charts
+        window.onload = function() {
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'Speech Clarity',
+                        data: [65, 70, 75, 80],
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        };
+
+        // Add your interactive functions here
+        function startExercise(type) {
+            // Exercise start logic
+        }
+
+        function viewDetailedProgress() {
+            // Progress view logic
+        }
+
+        function joinSession(sessionId) {
+            // Session joining logic
+        }
+
+        function rescheduleSession(sessionId) {
+            // Rescheduling logic
+        }
+    </script>
+</body>
+</html>
